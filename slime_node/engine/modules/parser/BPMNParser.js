@@ -8,7 +8,7 @@ const {Utils} = require('../../utility/Func');
 class BPMNParser extends AbstractParser {
   discover(store, obj){
     for(let [_key, _value] of Object.entries(obj)){
-      const key = this.keyParse(_key_;
+      const key = this.keyParse(_key);
       if(typeof(_value) === "object"){
         if(!!_value.length){
           let subobj = [];
@@ -21,17 +21,18 @@ class BPMNParser extends AbstractParser {
               subobj.push(substore);
             }
             store[key] = subobj;
-          } else {
-            let substore = {};
-            this.discover(substore, _value);
-            store[key] = substore;
           }
         } else {
-          store[key] = _value;
+          let substore = {};
+          this.discover(substore, _value);
+          store[key] = substore;
         }
+      } else {
+        store[key] = _value;
       }
-      return store;
     }
+      return store;
+  }
     
     createNode(key, xmlNode){
       const new_node = this.typeMatch(key, xmlNode);

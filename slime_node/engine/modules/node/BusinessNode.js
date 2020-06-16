@@ -1,11 +1,11 @@
-const uuidv4 = require("uuid/v4");
+const uuidv4 = require("uuid").v4;
 
 const log = require('../../../utility/logger');
 const {Utils} = require('../../utility/Func');
 
 const {FlowType, NodeType} = require('../../business/BusinessConstants');
 
-class BUsinessNode {
+class BusinessNode {
   _prev = []
   _next = []
   
@@ -42,7 +42,7 @@ class BUsinessNode {
       
       iam.toNext(1, (_node, _depth)=>{
         const delim = '|-' + Array(_depth).join('-');
-        const prevNodes = _node._prev.map((item_=>{ return item._nodeId }).join(', ');
+        const prevNodes = _node._prev.map(item_=>{ return item._nodeId }).join(', ');
         log.info('@@@ ', delim, _depth, _node._nodeId
           , " [", prevNodes, "] "
           , _node._options.nodeType
@@ -144,7 +144,7 @@ class BUsinessNode {
     
     bindPrevItem = (prev) => {
       if(!this.inPrev(prev)) {
-        this._prev.push)prev);
+        this._prev.push(prev);
         prev._next.push(this);
       }
       return this;

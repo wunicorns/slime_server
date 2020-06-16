@@ -33,7 +33,7 @@ const httpServer = http.createServer(app);
 
 app.use(cors());
 
-app.use(bodyPArser.json());
+app.use(bodyParser.json());
 
 require('./router/routes')(app);
 require('./router/realtime')(httpServer);

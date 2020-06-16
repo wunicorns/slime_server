@@ -9,8 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.5.8",
-    "mongoose": "^5.9.17"
+    "mongoose": "^5.9.17",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.1.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.5.0",
+    "xml2json": "^0.12.0"
   }
 }

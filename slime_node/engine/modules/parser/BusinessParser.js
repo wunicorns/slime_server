@@ -1,6 +1,6 @@
 const {FlowType, NodeType} = require('../../business/BusinessConstants');
 const {Utils} = require('../../utility/Func');
-const BusinessNode = require('../node/BUsinessNode');
+const BusinessNode = require('../node/BusinessNode');
 
 class AbstractParser {
   createNode (_key, _value){}
@@ -62,7 +62,7 @@ class AbstractParser {
     
     for(let [key, obj] of startNodes){
       obj.node.bindPrev(root);
-    ]
+    }
     
     return root;
   }

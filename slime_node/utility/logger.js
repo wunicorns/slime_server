@@ -7,7 +7,7 @@ winston.level = 'debug';
 
 const LOG_FILE_PATH = '/var/bpmn.log';
 
-const fornatter = options => {
+const formatter = options => {
   return [
     moment().format('YYYY-MM-DD HH:mm:ss.SSS'),
     options.level.toUpperCase(),
@@ -24,12 +24,12 @@ const winstonLogger = winston.createLogger({
         new winston.transport.DailyRotateFile({
           name: 'rotated-log'
           , level: 'fatal'
-          , filename: LOG_FILE_PATH + '-%DATE%.log',
+          , filename: LOG_FILE_PATH + '-%DATE%.log'
           , datePattern: 'YYYY-MM-DD'
-          , localTime: true,
+          , localTime: true
           , format: winston.format.printf(formatter)
           , maxSize: '3g'
-          , 'maxFiles: '7d'
+          , maxFiles: '7d'
         })
       );
     }
@@ -39,7 +39,7 @@ const winstonLogger = winston.createLogger({
         , lebel: 'info'
         , format: winston.format.printf(formatter)
       })
-    };
+    );
     
     return transports;
   })()

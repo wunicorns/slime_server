@@ -1,4 +1,4 @@
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid').v4;
 const mongoose = require('mongoose');
 const modelInterface = require('./model').ModelInterface;
 const log = require('../utility/logger');
@@ -70,8 +70,7 @@ const Diagram = Object.assign(modelInterface, {
       if(err) log.error(err);
     });
   }
-  
-  , get: async (args => {
+  , get: async (args) => {
     return await this.dataModel.find(args);
   }
   

@@ -1,9 +1,9 @@
-const Diagram = reuqire('../models/diagram').Diagram;
+const Diagram = require('../models/diagrams').Diagram;
 const {BpmnParser} = require('../engine/modules/parser/BPMNParser');
 const parser = require('xml2json');
 
 module.exports = (app) => {
-  const _router = require('exporess').Router();
+  const _router = require('express').Router();
 
   _router.get('/diagram/:type', async (req, res, next)=>{
     try{
@@ -81,7 +81,7 @@ module.exports = (app) => {
     }  
   });
   
-  app.use('/api', _routr);
+  app.use('/api', _router);
 
 };
   
