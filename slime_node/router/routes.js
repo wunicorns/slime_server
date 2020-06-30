@@ -5,6 +5,15 @@ const parser = require('xml2json');
 module.exports = (app) => {
   const _router = require('express').Router();
 
+/**
+ * @api {get} /diagram/:type Request User information
+ * @apiName GetDiagramList
+ * @apiGroup Diagram
+ *
+ * @apiParam {String} id Diagram unique ID.
+ *
+ * @apiSuccess {Object[]} List of the Diagram.
+ */
   _router.get('/diagram/:type', async (req, res, next)=>{
     try{
       const diagramList = await Diagram.getList({

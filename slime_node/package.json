@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "apidoc": "apidoc -i ./router -o ./apidoc"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +19,12 @@
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.5.0",
     "xml2json": "^0.12.0"
+  },
+  "apidoc": {
+    "name": "SlimeServer",
+    "version": "0.1.0",
+    "description": "SlimeServer",
+    "title": "SlimeServer API",
+    "url" : "https://api.github.com/v1"
   }
 }
